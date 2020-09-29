@@ -6,7 +6,7 @@ public class admission {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("what is your last name");
+        System.out.println("what is your last name?");
         String name = scanner.next();
 
         System.out.print("what is your SAT score? ");
