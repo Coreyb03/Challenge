@@ -5,7 +5,7 @@ public class Color{
     private int blue;
     private int green;
     Random rand = new Random();
-    double percent;
+
 
     public Color(int red, int blue, int green){
         this.red = red;
@@ -43,20 +43,26 @@ public class Color{
         green = rand.nextInt(256);
     }
 
+    public void setRandom(){
+        red = rand.nextInt(256);
+        blue = rand.nextInt(256);
+        green = rand.nextInt(256);
+    }
+
     public void printSummary(){
-        System.out.println( "RBG: " + red + "," + blue + "," + green);
+        System.out.println( "RBG: " + Integer.toString(red) + "," + Integer.toString(blue) + "," + Integer.toString(green));
     }
 
     public void darken(double percent){
-        red = (int) (red * (1.0 - percent/100));
-        blue = (int) (blue * (1.0 - percent/100));
-        green = (int) (green * (1.0 - percent/100));
+        red = (int) (red * (1.0 - percent/100.0));
+        blue = (int) (blue * (1.0 - percent/100.0));
+        green = (int) (green * (1.0 - percent/100.0));
     }
 
     public void lighten(double percent){
-        red = (int) (red * (1.0 + percent/100));
-        blue = (int) (blue * (1.0 + percent/100));
-        green = (int) (green * (1.0 + percent/100));
+        red = (int) (red * (1.0 + percent/100.0));
+        blue = (int) (blue * (1.0 + percent/100.0));
+        green = (int) (green * (1.0 + percent/100.0));
     }
 
     public void clamp(){
