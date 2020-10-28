@@ -20,33 +20,15 @@ public class Color{
     }
 
     public void setRed(int red){
-        if (red <= 255 && red >= 0){
-            this.red = red;
-        } else if (red > 255){
-            this.red = 255;
-        } else if (red < 0){
-            this.red = 0;
-        }
+        this.red = red;
     }
 
     public void setBlue(int blue){
-        if (blue <= 255 && blue >= 0){
-            this.blue = blue;
-        } else if (blue > 255){
-            this.blue = 255;
-        } else if (blue < 0){
-            this.blue = 0;
-        }
+        this.blue = blue;
     }
 
     public void setGreen(int green){
-        if (green <= 255 && green >= 0){
-            this.green = green;
-        } else if (green > 255){
-            this.green = 255;
-        } else if (green < 0){
-            this.green = 0;
-        }
+        this.green = green;
     }
 
     public void setRandomRed(){
@@ -61,13 +43,47 @@ public class Color{
         green = rand.nextInt(256);
     }
 
-    public String printSummary(){
-        return "RBG: " + red + "," + blue + "," + green;
+    public void printSummary(){
+        System.out.println( "RBG: " + red + "," + blue + "," + green);
     }
 
-    //public double darken(double percent){
-    //    red = red * 1.0 / percent;
-    //}
+    public void darken(double percent){
+        red = (int) (red * (1.0 - percent/100));
+        blue = (int) (blue * (1.0 - percent/100));
+        green = (int) (green * (1.0 - percent/100));
+    }
+
+    public void lighten(double percent){
+        red = (int) (red * (1.0 + percent/100));
+        blue = (int) (blue * (1.0 + percent/100));
+        green = (int) (green * (1.0 + percent/100));
+    }
+
+    public void clamp(){
+        if (red <= 255 && red >= 0){
+            this.red = red;
+        } else if (red > 255){
+            this.red = 255;
+        } else if (red < 0){
+            this.red = 0;
+        }
+    
+        if (blue <= 255 && blue >= 0){
+            this.blue = blue;
+        } else if (blue > 255){
+            this.blue = 255;
+        } else if (blue < 0){
+            this.blue = 0;
+        }
+
+        if (green <= 255 && green >= 0){
+            this.green = green;
+        } else if (green > 255){
+            this.green = 255;
+        } else if (green < 0){
+            this.green = 0;
+        }
+    }
 
 
 }

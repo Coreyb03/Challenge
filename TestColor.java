@@ -6,11 +6,16 @@ public class TestColor{
         
         
         Color color1 = new Color();
-        System.out.println(color1.printSummary());
+        color1.printSummary();
 
         color1.setBlue(1112);
+        color1.clamp();
         color1.setRandomRed();
-        System.out.println(color1.printSummary());
+        color1.printSummary();
+
+        color1.darken(66.7);
+        color1.clamp();
+        color1.printSummary();
 
     }
 }
